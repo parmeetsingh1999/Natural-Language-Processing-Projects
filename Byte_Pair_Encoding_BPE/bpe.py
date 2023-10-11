@@ -6,22 +6,16 @@ import os
 for dirname, _, filenames in os.walk('/kaggle/input'):
     for filename in filenames:
         print(os.path.join(dirname, filename))
-/kaggle/input/wiki-corpus-txt-data/wiki_corpus.txt
-add Codeadd Markdown
-Loading the data
-add Codeadd Markdown
+
+#Loading the data
 with open('/kaggle/input/wiki-corpus-txt-data/wiki_corpus.txt', encoding = 'utf8') as f:
     corpus = f.readlines()
     print(corpus[:5])
-['YMCA in South Australia\n', "South Australia (SA) \xa0has a unique position in Australia's history as, unlike the other states which were founded as colonies, South Australia began as a self governing province Many were attracted to this and Adelaide and SA developed as an independent and free thinking state.\n", 'The compound of philosophical radicalism, evangelical religion and self reliant ability typical of its founders had given an equalitarian flavour to South Australian thinking from the beginning.\n', 'It was into this social setting that in February 1850 a meeting was called primarily for the formation of an Association (apparently meaning a Y.M.C.A.)\n', "for apprentices and others, after their day's work, to enjoy books, lectures, discussions, readings, friendly relief and recreation for a leisure hour.\n"]
-add Codeadd Markdown
-Setting up parameters
-add Codeadd Markdown
+
+#Setting up parameters
 vocab_size = 1000
-add Codeadd Markdown
-Creating class for the BPE
-add Codeadd Markdown
-n
+
+#Creating class for the BPE
 class BPE():
     def __init__(self, corpus, vocab_size):
         self.corpus = corpus
@@ -110,9 +104,8 @@ class BPE():
                 splits_text[idx] = split
         result = sum(splits_text, [])
         return result
-add Codeadd Markdown
-Testing
-add Codeadd Markdown
+
+#Testing
 bpe = BPE(corpus = corpus, vocab_size = vocab_size)
 bpe.train()
 text = "Love, hate, or feel meh about Harry Potter, it’s hard to argue that J.K. Rowling filled the books with intentional writing choices. From made up words to the meanings of names to the well-scripted first and last lines of each novel, Rowling wanted to the writing to match the intricate fantasy world she created for the now-iconic boy wizard. To examine a few of these choices, I’ll be taking a closer look at the first line of Harry Potter, as well as the last lines, from all of the Harry Potter novels."
